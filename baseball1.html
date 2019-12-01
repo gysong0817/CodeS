@@ -25,32 +25,30 @@ function writeMembers(members, team_name) {
     }
 }
 
-    function Main_Menu() {
-        console.log("신나는 야구시합\n1. 데이터 입력\n2. 데이터 출력");
+function Main_Menu() {
+    console.log("신나는 야구시합\n1. 데이터 입력\n2. 데이터 출력");
 
-        var team1 = "", team2 = "";
+    var team1 = "", team2 = "";
+    var team1_members = [];
+    var team2_members = [];
 
-        var team1_members = [];
-        var team2_members = [];
+    while(true) {
+        var n = prompt("메뉴선택 : 1 , 2");
 
-
-        while(true) {
-            var n = prompt("메뉴선택 : 1 , 2");
-
-            if (n == "1") {  
-                team1 = prompt("1번 팀의 이름을 입력하세요.");
-                team1_members = readMembers(team1)
+        if (n == "1") {  
+            team1 = prompt("1번 팀의 이름을 입력하세요.");
+            team1_members = readMembers(team1)
     
-                team2 = prompt("2번 팀의 이름을 입력하세요.");
-                team2_members = readMembers(team2)
-
-            }
-            else if (n == "2") {
-                writeMembers(team1_members, team1);
-                writeMembers(team2_members, team2);
-            }
+            team2 = prompt("2번 팀의 이름을 입력하세요.");
+            team2_members = readMembers(team2)
+        }
+        else if (n == "2") {
+            writeMembers(team1_members, team1);
+            writeMembers(team2_members, team2);
+            break;
         }
     }
+}
 Main_Menu();
 </script>
 </body>
