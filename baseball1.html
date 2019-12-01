@@ -8,71 +8,50 @@
 </head>
 <body>
 <script>
-const STRIKE = 0;
-const BALL = 1;
-const OUT = 2;
-const HIT = 3;
 
-function getPlayresult(max) {
-    random_result = Math.floor(Math.random() * max);
-    return random_result;
-
+function readMembers(team_name) {
+    console.log(team_name+"팀의 선수 정보를 입력하시오.");
+    var members = [];
+    for(var i = 0; i < 9; i++) {
+        members[i] = prompt(team_name + "팀의 " + (i + 1) + "번째 타자 정보 입력");
+    }
+    return members;
 }
 
-function baseball() {
-    console.log("신나는 야구게임!\n첫번째 타자가 타석에 입장했습니다.");
-    this.Strike = 0;
-    this.Ball = 0;
-    this.Out = 0;
-    this.Hit = 0;
-
-    while (true) {
-        var result = getPlayresult(4);
-        var nextPlayer = false;
-        
-        if (result == STRIKE) {
-            this.Strike += 1;
-            console.log("스트라이크!");
-        }
-        else if (result == BALL) {
-            this.Ball += 1;
-            console.log("볼!");
-        }
-        else if (result == OUT) {
-            this.Out += 1;
-            console.log("아웃!");
-            nextPlayer = true;
-        }
-        else if (result == HIT) {
-            this.Hit += 1;
-            console.log("안타!");
-            nextPlayer = true;
-        }
-        console.log(`${this.Strike}S ${this.Ball}B ${this.Out}O`); 
-        ///
-        if (this.Strike >= 3) {
-            this.Out += 1;
-        }
-
-        if (this.Ball >= 4) {
-            this.Hit += 1;
-        }
-        if (nextPlayer == true) {
-            console.log("다음 타자가 타석에 입장했습니다.");
-            this.Strike = 0;
-            this.Ball = 0;
-        }
-
-        if (this.Out >= 3) {
-            console.log("최종 안타수 : " + this.Hit);
-            break;
-        }
+function writeMembers(members, team_name) {
+    console.log(team_name);
+    for (var i = 0; i < 9; i++) {
+        console.log(members[i])
     }
 }
-//baseball();
-while(true) {
-    get 0,1,2,
-}
+
+    function Main_Menu() {
+        console.log("신나는 야구시합\n1. 데이터 입력\n2. 데이터 출력");
+
+        var team1 = "", team2 = "";
+
+        var team1_members = [];
+        var team2_members = [];
+
+
+        while(true) {
+            var n = prompt("메뉴선택 : 1 , 2");
+
+            if (n == "1") {  
+                team1 = prompt("1번 팀의 이름을 입력하세요.");
+                team1_members = readMembers(team1)
+    
+                team2 = prompt("2번 팀의 이름을 입력하세요.");
+                team2_members = readMembers(team2)
+
+            }
+            else if (n == "2") {
+                writeMembers(team1_members, team1);
+                writeMembers(team2_members, team2);
+            }
+        }
+    }
+Main_Menu();
 </script>
 </body>
 </html>
