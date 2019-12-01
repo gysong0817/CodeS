@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Baseball Game</title>
 </head>
 <body>
 <script>
@@ -13,30 +13,30 @@ const BALL = 1;
 const OUT = 2;
 const HIT = 3;
 
-
 function getPlayresult(max) {
     random_result = Math.floor(Math.random() * max);
     return random_result;
+
 }
 
 function baseball() {
-    console.log("신나는 야구 게임!\n첫 번째 타자가 타석에 입장했습니다.");
+    console.log("신나는 야구게임!\n첫번째 타자가 타석에 입장했습니다.");
     this.Strike = 0;
     this.Ball = 0;
     this.Out = 0;
     this.Hit = 0;
 
-    while(true) {
+    while (true) {
         var result = getPlayresult(4);
         var nextPlayer = false;
-
-        if(result == STRIKE) {
+        
+        if (result == STRIKE) {
             this.Strike += 1;
             console.log("스트라이크!");
         }
-        else if(result == BALL) {
+        else if (result == BALL) {
             this.Ball += 1;
-            console.log("볼!")
+            console.log("볼!");
         }
         else if (result == OUT) {
             this.Out += 1;
@@ -48,16 +48,14 @@ function baseball() {
             console.log("안타!");
             nextPlayer = true;
         }
-        console.log(`${this.Strike}S ${this.Ball}B ${this.Out}O`)
+        console.log(`${this.Strike}S ${this.Ball}B ${this.Out}O`); 
         ///
         if (this.Strike >= 3) {
             this.Out += 1;
-            nextPlayer = true;
         }
 
         if (this.Ball >= 4) {
             this.Hit += 1;
-            nextPlayer = true;
         }
 
         if (nextPlayer == true) {
@@ -70,7 +68,7 @@ function baseball() {
             console.log("최종 안타수 : " + this.Hit);
             break;
         }
-    }    
+    }
 }
 baseball();
 </script>
