@@ -11,17 +11,17 @@
 
 function readMembers(team_name) {
     console.log(team_name+"팀의 선수 정보를 입력하시오.");
-    var members = [];
+    var Members = [];
     for(var i = 0; i < 9; i++) {
-        members[i] = prompt(team_name + "팀의 " + (i + 1) + "번째 타자 정보 입력");
+        Members[i] = prompt(team_name + "팀의 " + (i + 1) + "번째 타자 정보 입력");
     }
-    return members;
+    return Members;
 }
 
-function writeMembers(members, team_name) {
+function writeMembers(team_name, Members) {
     console.log(team_name);
     for (var i = 0; i < 9; i++) {
-        console.log(members[i])
+        console.log(Members[i])
     }
 }
 
@@ -43,8 +43,8 @@ function Main_Menu() {
             team2_members = readMembers(team2)
         }
         else if (n == "2") {
-            writeMembers(team1_members, team1);
-            writeMembers(team2_members, team2);
+            writeMembers(team1, team1_members);
+            writeMembers(team2, team2_members);
             break;
         }
     }
